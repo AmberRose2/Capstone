@@ -107,10 +107,6 @@ class Fish {
     let cohesion = this.cohesion(fish);
     let separation = this.separation(fish);
 
-    // separation.mult(separationSlider.value());
-    // cohesion.mult(cohesionSlider.value());
-    // alignment.mult(alignmentSlider.value());
-
     this.acceleration.add(alignment);
     this.acceleration.add(cohesion);
     this.acceleration.add(separation);
@@ -124,8 +120,9 @@ class Fish {
   }
 
   show() {
-    strokeWeight(30);
-    stroke(243, 141, 81);
-    point(this.position.x, this.position.y);
+    // strokeWeight(30);
+    // stroke(243, 141, 81);
+    // point(this.position.x, this.position.y);
+    image(koi, this.position.x, this.position.y);
   }
 }

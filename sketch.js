@@ -1,12 +1,11 @@
 const school = [];
 
-// let alignSlider, cohesionSlider, separationSlider;
+function preload() {
+  koi = loadImage("assets/koi.gif");
+}
 
 function setup() {
-  createCanvas(640, 360);
-  // alignSlider = createSlider(0, 5, 1, 0.1);
-  // cohesionSlider = createSlider(0, 5, 1, 0.1);
-  // separationSlider = createSlider(0, 5, 1, 0.1);
+  createCanvas(840, 560);
   for (let i = 0; i < 20; i++) school.push(new Fish());
 }
 
