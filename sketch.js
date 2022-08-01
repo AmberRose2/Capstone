@@ -1,4 +1,4 @@
-const school = [];
+let school = [];
 
 function preload() {
   koi = loadImage("assets/koi.gif");
@@ -6,7 +6,7 @@ function preload() {
 
 function setup() {
   createCanvas(840, 560);
-  for (let i = 0; i < 20; i++) school.push(new Fish());
+  for (let i = 0; i < 30; i++) school.push(new Fish());
 }
 
 function draw() {

@@ -4,8 +4,10 @@ class Fish {
     this.velocity = p5.Vector.random2D();
     this.velocity.setMag(random(2, 4));
     this.acceleration = createVector();
-    this.maxForce = 0.3;
-    this.maxSpeed = 0.5;
+    this.maxForce = 0.01;
+    this.maxSpeed = 1.6;
+
+    this.angle = 0;
   }
 
   //fish wrap around the screen
@@ -23,7 +25,7 @@ class Fish {
   }
   //How much do you want the fish to swim the same direction?//
   align(fish) {
-    let perceptionRadius = 55;
+    let perceptionRadius = 50;
     let steering = createVector();
     let total = 0;
     for (let other of fish) {
@@ -113,16 +115,23 @@ class Fish {
   }
 
   update() {
-    this.position.add(this.velocity);
     this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
     this.velocity.limit(this.maxSpeed);
-    this.acceleration.mult(0);
+    this.acceleration.set(0, 0);
   }
 
   show() {
     // strokeWeight(30);
     // stroke(243, 141, 81);
     // point(this.position.x, this.position.y);
-    image(koi, this.position.x, this.position.y);
+    push();
+    translate(this.position.x + 50, this.position.y + 25);
+    this.angle = this.velocity.heading();
+    rotate(this.angle);
+    rotate(PI);
+    imageMode(CENTER);
+    image(koi, 0, 0, 100, 50);
+    pop();
   }
 }
