@@ -1,11 +1,15 @@
 let school = [];
+let fishes = {};
 
 function preload() {
-  koi = loadImage("assets/koi.gif");
+  for (let i = 1; i < 8; i++) {
+    fishes[i] = loadImage("assets/fish" + i + ".gif");
+  }
 }
 
 function setup() {
   createCanvas(840, 560);
+  // let fish = random(fishes);
   for (let i = 0; i < 30; i++) school.push(new Fish());
 }
 

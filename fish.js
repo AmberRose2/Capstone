@@ -2,6 +2,9 @@ class Fish {
   constructor() {
     this.position = createVector(random(width), random(height));
     this.velocity = p5.Vector.random2D();
+    // Amber = Math.floor(random(1, 8));
+    // console.log(Amber);
+    this.fish = fishes[Math.floor(random(1, 8))];
     this.velocity.setMag(random(2, 4));
     this.acceleration = createVector();
     this.maxForce = 0.01;
@@ -131,7 +134,7 @@ class Fish {
     rotate(this.angle);
     rotate(PI);
     imageMode(CENTER);
-    image(koi, 0, 0, 100, 50);
+    image(this.fish, 0, 0, 100, 50);
     pop();
   }
 }
