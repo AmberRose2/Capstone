@@ -2,14 +2,11 @@ class Fish {
   constructor() {
     this.position = createVector(random(width), random(height));
     this.velocity = p5.Vector.random2D();
-    // Amber = Math.floor(random(1, 8));
-    // console.log(Amber);
     this.fish = fishes[Math.floor(random(1, 8))];
     this.velocity.setMag(random(2, 4));
     this.acceleration = createVector();
     this.maxForce = 0.01;
     this.maxSpeed = 1.6;
-
     this.angle = 0;
   }
 
@@ -84,6 +81,7 @@ class Fish {
     let perceptionRadius = 55;
     let steering = createVector();
     let total = 0;
+    // let mouse = createVector(mouseX, mouseY);
     for (let other of fish) {
       let d = dist(
         this.position.x,
@@ -118,6 +116,15 @@ class Fish {
   }
 
   update() {
+    /////Poor fishies are scared of cursors :( ////////
+    let mouse = createVector(mouseX, mouseY);
+    let perceptionRadius = 100;
+    let mouseDistance = dist(this.position.x, this.position.y, mouseX, mouseY);
+    if (mouseDistance < perceptionRadius) {
+      mouse.sub(this.position);
+      mouse.setMag(0.7);
+      this.acceleration.sub(mouse);
+    }
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
     this.velocity.limit(this.maxSpeed);
@@ -125,9 +132,6 @@ class Fish {
   }
 
   show() {
-    // strokeWeight(30);
-    // stroke(243, 141, 81);
-    // point(this.position.x, this.position.y);
     push();
     translate(this.position.x + 50, this.position.y + 25);
     this.angle = this.velocity.heading();
