@@ -25,6 +25,7 @@ function draw() {
     fish.show();
   }
   for (let lilypad of pond) {
+    lilypad.edges();
     lilypad.update();
     lilypad.show();
   }

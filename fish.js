@@ -81,7 +81,6 @@ class Fish {
     let perceptionRadius = 55;
     let steering = createVector();
     let total = 0;
-    // let mouse = createVector(mouseX, mouseY);
     for (let other of fish) {
       let d = dist(
         this.position.x,

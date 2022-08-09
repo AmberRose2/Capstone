@@ -7,7 +7,18 @@ class Lilypad {
     this.angle = 0;
     this.maxSpeed = 0.07;
   }
-
+  edges() {
+    if (this.position.x > width) {
+      this.position.x = 0;
+    } else if (this.position.x < 0) {
+      this.position.x = width;
+    }
+    if (this.position.y > height) {
+      this.position.y = 0;
+    } else if (this.position.y < 0) {
+      this.position.y = height;
+    }
+  }
   update() {
     this.position.add(this.velocity);
     this.velocity.add(this.acceleration);
