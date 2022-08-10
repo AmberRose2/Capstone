@@ -124,6 +124,25 @@ class Fish {
       mouse.setMag(0.7);
       this.acceleration.sub(mouse);
     }
+    /////Code for food attracting fish///////
+    for (let food in feast) {
+      let foodPosition = createVector(feast[food].x, feast[food].y);
+      if (
+        dist(this.position.x, this.position.y, feast[food].x, feast[food].y) <
+        perceptionRadius
+      ) {
+        foodPosition.sub(this.position);
+        foodPosition.setMag(1.5);
+        this.acceleration.add(foodPosition);
+      }
+      if (
+        dist(this.position.x, this.position.y, feast[food].x, feast[food].y) <=
+        0.2
+      ) {
+        feast.pop();
+      }
+    }
+
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
     this.velocity.limit(this.maxSpeed);
