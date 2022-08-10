@@ -126,7 +126,7 @@ class Fish {
     }
     /////Code for food attracting fish///////
     for (let food in feast) {
-      let foodPosition = createVector(feast[food].x, feast[food].y);
+      let foodPosition = createVector(feast[food].x - 50, feast[food].y - 25);
       if (
         dist(this.position.x, this.position.y, feast[food].x, feast[food].y) <
         perceptionRadius
@@ -136,8 +136,12 @@ class Fish {
         this.acceleration.add(foodPosition);
       }
       if (
-        dist(this.position.x, this.position.y, feast[food].x, feast[food].y) <=
-        0.2
+        dist(
+          this.position.x,
+          this.position.y,
+          feast[food].x - 50,
+          feast[food].y - 25
+        ) <= 1
       ) {
         feast.pop();
       }

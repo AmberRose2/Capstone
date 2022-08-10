@@ -43,14 +43,15 @@ function draw() {
   background(132, 209, 220);
   // maxFish = fishSlider.value();
   // maxPads = lilypadSlider.value();
+  for (let food of feast) {
+    food.show();
+  }
+
   for (let fish of school) {
     fish.edges();
     fish.school(school);
     fish.update();
     fish.show();
-  }
-  for (let food of feast) {
-    food.show();
   }
   // Adjust the amount of boids on screen according to the slider value
   // let maxFish = controls.numFish;
