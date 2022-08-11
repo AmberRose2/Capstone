@@ -4,7 +4,7 @@ let pond = [];
 let feast = [];
 let fishSlider, lilypadSlider;
 let maxFish = 30;
-let maxPads = 20;
+let maxPads = 14;
 
 // let Controls = function () {
 //   this.numFish = 30;
@@ -17,7 +17,7 @@ function preload() {
   for (let i = 1; i < 8; i++) {
     fishes[i] = loadImage("assets/fish" + i + ".gif");
   }
-  lilypad = loadImage("assets/lilypad.png");
+  lilypad = loadImage("assets/Lilypads.png");
 }
 
 function setup() {

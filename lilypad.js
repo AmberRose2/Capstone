@@ -33,7 +33,7 @@ class Lilypad {
     rotate(this.angle);
     rotate(PI);
     imageMode(CENTER);
-    image(lilypad, 0, 0, 100, 100);
+    image(lilypad, 0, 0, 200, 150);
     pop();
   }
 }
