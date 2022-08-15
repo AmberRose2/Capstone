@@ -21,7 +21,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(840, 560);
+  createCanvas(1800, 1000);
   let fish = random(fishes);
   for (let i = 0; i < maxFish; i++) {
     school.push(new Fish());
