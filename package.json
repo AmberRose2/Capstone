@@ -1,4 +1,6 @@
-{
+{  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "p5.play": "^3.0.38"
   }
