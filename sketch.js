@@ -40,7 +40,7 @@ function setup() {
 }
 
 function draw() {
-  background(132, 209, 220);
+  background(106, 193, 216);
   // maxFish = fishSlider.value();
   // maxPads = lilypadSlider.value();
   for (let food of feast) {
@@ -73,5 +73,23 @@ function draw() {
 }
 function mousePressed() {
   feast.push(new Food(mouseX, mouseY));
-  console.log("WHY U NO WORK?? :(");
 }
+
+// When the user clicks on the button, toggle between hiding and showing the dropdown content //
+// function myFunction() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
+
+// Close the dropdown menu if the user clicks outside of it
+// window.onclick = function (event) {
+//   if (!event.target.matches(".dropbtn")) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+//   }
+// };
