@@ -1,5 +1,5 @@
 {  "scripts": {
-    "start": "node index.js"
+    "start": "node sketch.js"
   },
   "dependencies": {
     "p5.play": "^3.0.38"
