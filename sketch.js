@@ -20,7 +20,9 @@ function setup() {
     school.push(new Fish());
   }
 
-  for (let i = 0; i < maxPads; i++) pond.push(new Lilypad());
+  for (let i = 0; i < maxPads; i++) {
+    pond.push(new Lilypad());
+  }
   fishSlider = createSlider(0, 80, 30, 2);
   lilypadSlider = createSlider(0, 60, 20, 2);
 }
@@ -39,7 +41,6 @@ function draw() {
   }
   // Adjust the amount of fish on screen according to the slider value
   maxFish = fishSlider.value();
-  // maxPads = lilypadSlider.value();
   let difference = school.length - maxFish;
   if (difference < 0) {
     for (let i = 0; i < -difference; i++) {
@@ -54,6 +55,17 @@ function draw() {
     lilypad.edges();
     lilypad.update();
     lilypad.show();
+  }
+  maxPads = lilypadSlider.value();
+  let diff = pond.length - maxPads;
+  if (diff < 0) {
+    for (let i = 0; i < -diff; i++) {
+      pond.push(new Lilypad());
+    }
+  } else if (diff > 0) {
+    for (let i = 0; i < diff; i++) {
+      pond.pop();
+    }
   }
 }
 
