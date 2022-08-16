@@ -23,6 +23,7 @@ function setup() {
   for (let i = 0; i < maxPads; i++) {
     pond.push(new Lilypad());
   }
+  createP("Fish-Friends Lilypads");
   fishSlider = createSlider(0, 80, 30, 2);
   lilypadSlider = createSlider(0, 60, 20, 2);
 }
@@ -51,11 +52,13 @@ function draw() {
       school.pop();
     }
   }
+
   for (let lilypad of pond) {
     lilypad.edges();
     lilypad.update();
     lilypad.show();
   }
+  // Adjust the amount of lilypads on screen according to the slider value
   maxPads = lilypadSlider.value();
   let diff = pond.length - maxPads;
   if (diff < 0) {
@@ -67,27 +70,10 @@ function draw() {
       pond.pop();
     }
   }
+  text("Welcome to the Pond!", 450, 50);
+  textSize(20);
 }
 
 function mousePressed() {
   feast.push(new Food(mouseX, mouseY));
 }
-
-// When the user clicks on the button, toggle between hiding and showing the dropdown content //
-// function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
-
-// Close the dropdown menu if the user clicks outside of it
-// window.onclick = function (event) {
-//   if (!event.target.matches(".dropbtn")) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains("show")) {
-//         openDropdown.classList.remove("show");
-//       }
-//     }
-//   }
-// }
